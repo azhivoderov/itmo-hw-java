@@ -1,10 +1,10 @@
-package ru.itmo.java2025;
+package ru.itmo.java2025.less1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Java2025ApplicationTests {
+class ApplicationRunnerTests {
 
 	@Test
 	void contextLoads() {

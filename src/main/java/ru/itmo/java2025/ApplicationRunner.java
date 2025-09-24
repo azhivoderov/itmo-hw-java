@@ -2,10 +2,10 @@ package ru.itmo.java2025;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import ru.itmo.java2025.dto.ExampleDto;
+import ru.itmo.java2025.less1.dto.ExampleDto;
 
 @SpringBootApplication
-public class Java2025Application {
+public class ApplicationRunner {
 
 	public static final ExampleDto EXAMPLE_DTO = new ExampleDto();
 
@@ -13,7 +13,7 @@ public class Java2025Application {
 		EXAMPLE_DTO.setId(1L);
 		System.out.println(EXAMPLE_DTO.getId());
 
-		SpringApplication.run(Java2025Application.class, args);
+		SpringApplication.run(ApplicationRunner.class, args);
 	}
 
 }

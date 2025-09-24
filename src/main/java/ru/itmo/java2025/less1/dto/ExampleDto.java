@@ -1,4 +1,4 @@
-package ru.itmo.java2025.dto;
+package ru.itmo.java2025.less1.dto;
 
 import lombok.Data;
 
