@@ -9,7 +9,7 @@ public class ApplicationRunner {
 
 	public static void main(String[] args) {
 		ExampleDto exampleDto = new ExampleDto();
-		exampleDto.setId(1L);
+		exampleDto.setId(1);
 		System.out.println(exampleDto.getId());
 
 		SpringApplication.run(ApplicationRunner.class, args);

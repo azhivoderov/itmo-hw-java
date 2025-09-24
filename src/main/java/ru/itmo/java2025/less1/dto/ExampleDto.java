@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ExampleDto {
-    private Long id;
+    private int id;
     private String name;
 }
