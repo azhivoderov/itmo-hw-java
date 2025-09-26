@@ -7,10 +7,11 @@ import ru.itmo.java2025.less1.dto.ExampleDto;
 @SpringBootApplication
 public class ApplicationRunner {
 
+	public static final ExampleDto EXAMPLE_DTO = new ExampleDto();
+
 	public static void main(String[] args) {
-		ExampleDto exampleDto = new ExampleDto();
-		exampleDto.setId(1);
-		System.out.println(exampleDto.getId());
+		EXAMPLE_DTO.setId(1L);
+		System.out.println(EXAMPLE_DTO.getId());
 
 		SpringApplication.run(ApplicationRunner.class, args);
 	}
