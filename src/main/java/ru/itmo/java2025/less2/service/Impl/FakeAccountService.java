@@ -1,7 +1,11 @@
-package ru.itmo.java2025.less2;
+package ru.itmo.java2025.less2.service.Impl;
+
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+
+@Component
 public class FakeAccountService implements AccountService {
 
     @Override
