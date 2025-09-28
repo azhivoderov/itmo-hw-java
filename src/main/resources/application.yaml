@@ -7,3 +7,7 @@ spring:
 itmo: {
   numValue: 5
 }
+
+fibonacci:
+  cacheEnabled: true
+
