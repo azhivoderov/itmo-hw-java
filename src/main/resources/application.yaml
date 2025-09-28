@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: itmo2025
+  main:
+    banner-mode: off
+
+itmo: {
+  numValue: 5
+}
