@@ -16,7 +16,6 @@ public class SpringApplicationRunnerHW3 {
 
     public static void main(String[] args) {
         try (ConfigurableApplicationContext applicationContextHW3 = SpringApplication.run(SpringApplicationRunnerHW3.class, args)) {
-            // AppResources  appResources = applicationContextHW3.getBean(AppResources.class);
             FibonacciService fibonacciService = applicationContextHW3.getBean(FibonacciService.class);
 
             Scanner scanner = new Scanner(System.in);

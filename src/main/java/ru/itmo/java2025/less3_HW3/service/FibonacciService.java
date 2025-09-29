@@ -16,7 +16,6 @@ public class FibonacciService {
     private final Map<Integer, BigInteger> cache;
     private final AppResources appResources;
 
-    @Autowired
     public FibonacciService(AppResources appResources) {
         this.appResources = appResources;
         this.cache = new ConcurrentHashMap<>();
