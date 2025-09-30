@@ -10,7 +10,7 @@ import java.math.BigInteger;
 import java.util.Scanner;
 
 @SpringBootApplication
-public class SpringApplicationRunnerHW3 {
+public class 5SpringApplicationRunnerHW3 {
 
     static Integer n;
 
