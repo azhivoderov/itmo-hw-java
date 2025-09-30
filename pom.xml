@@ -5,11 +5,12 @@
     <groupId>ru.itmo</groupId>
     <artifactId>javaadvanced</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>javaadvanced</name>
+    <name>java advanced</name>
     <description>Project for ITMO</description>
     <packaging>pom</packaging>
     <modules>
         <module>spring-core</module>
+        <module>spring-database</module>
     </modules>
 
 </project>
