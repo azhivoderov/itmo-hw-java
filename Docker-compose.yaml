@@ -27,6 +27,3 @@ services:
 
 volumes:
   postgres-volume:
-
-networks:
-  db-backend
