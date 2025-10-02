@@ -12,11 +12,9 @@ public class SpringDatabaseApplication {
 
        ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringDatabaseApplication.class, args);
        GroupDao groupDao = applicationContext.getBean(GroupDao.class);
-       groupDao.create(1000L, "A1000");
-       groupDao.updateNameById(5000L, "B5000");
-       groupDao.deleteById(1000L);
-
-        System.out.println(groupDao.findAll());
+       for (int i=1; i<=10; i++) {
+           groupDao.create(1000L*i, "A"+1000L*i );
+       }
 
 	}
 
