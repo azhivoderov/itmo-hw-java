@@ -17,9 +17,13 @@ public class CityDaoImpl implements CityDao {
     @Override
     public Long create(Long id, String nameRU,  String nameEN, Integer numberResidents, Integer regionId) {
         jdbcTemplate.update("""
-            insert into cities (id, name_ru, name_en, number_residents, region_id)
+            insert into cities (id,
+                                name_ru,
+                                name_en,
+                                number_residents,
+                                region_id)
             values (?,?,?,?,?)
-       """, id, nameRU, nameEN, numberResidents, regionId);
+       """, id, nameRU,  nameEN, numberResidents, regionId);
         return id;
     }
 
@@ -45,10 +49,8 @@ public class CityDaoImpl implements CityDao {
                 select id, name_ru  from cities
                 where id = ?
                 """,
-                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("nameRU"), rs.getString("nameEN"), rs.getInt("numberResidents"), rs.getInt("regionId") )
+                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("NameRU"), rs.getString("NameEN"), rs.getInt("NumberResidents"), rs.getInt("Regionid") )
         ));
     }
-    public CityDaoImpl(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+
 }

@@ -6,6 +6,7 @@ import lombok.ToString;
 @ToString
 @Data
 public class City {
+
     private Long id;
     private String nameRU;
     private String nameEN;
