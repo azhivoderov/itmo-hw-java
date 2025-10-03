@@ -15,20 +15,20 @@ public class CityDaoImpl implements CityDao {
     private final JdbcTemplate jdbcTemplate;
 
     @Override
-    public Long create(Long id, String name_ru,  String name_en, Integer number_residents, Integer region_id) {
+    public Long create(Long id, String nameRU,  String nameEN, Integer numberResidents, Integer regionId) {
         jdbcTemplate.update("""
             insert into cities (id, name_ru, name_en, number_residents, region_id)
             values (?,?,?,?,?)
-       """, id, name_ru, name_en, number_residents, region_id);
+       """, id, nameRU, nameEN, numberResidents, regionId);
         return id;
     }
 
     @Override
-    public void updateById(Long id, String name_ru, String name_en, Integer number_residents, Integer region_id) {
+    public void updateById(Long id, String nameRU, String nameEN, Integer numberResidents, Integer regionId) {
         jdbcTemplate.update("""
             update cities set name_ru = ?, name_en = ?, number_residents = ?, region_id = ?
             where id = ?
-        """, name_ru,  name_en, number_residents, region_id, id);
+        """, nameRU,  nameEN, numberResidents, regionId, id);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class CityDaoImpl implements CityDao {
                 select id, name_ru  from cities
                 where id = ?
                 """,
-                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("name_ru"), rs.getString("name_en"), rs.getInt("number_residents"), rs.getInt("region_id") )
+                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("nameRU"), rs.getString("nameEN"), rs.getInt("numberResidents"), rs.getInt("regionId") )
         ));
     }
     public CityDaoImpl(JdbcTemplate jdbcTemplate) {

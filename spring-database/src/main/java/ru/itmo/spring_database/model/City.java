@@ -1,22 +1,23 @@
 package ru.itmo.spring_database.model;
 
-import lombok.*;
+import lombok.Data;
+import lombok.ToString;
 
 @ToString
 @Data
 public class City {
     private Long id;
-    private String name_ru;
-    private String name_en;
-    private Integer number_residents;
-    private Integer region_id;
+    private String nameRU;
+    private String nameEN;
+    private Integer numberResidents;
+    private Integer regionId;
 
-    public City(Long id, String name_ru, String name_en, Integer number_residents, Integer region_id) {
+    public City(Long id, String nameRU, String nameEN, Integer numberResidents, Integer regionId) {
         this.id = id;
-        this.name_ru = name_ru;
-        this.name_en = name_en;
-        this.number_residents = number_residents;
-        this.region_id = region_id;
+        this.nameRU = nameRU;
+        this.nameEN = nameEN;
+        this.numberResidents = numberResidents;
+        this.regionId = regionId;
     }
 
 }
