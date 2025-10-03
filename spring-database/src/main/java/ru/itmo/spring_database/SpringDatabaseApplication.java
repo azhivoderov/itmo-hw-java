@@ -15,14 +15,14 @@ public class SpringDatabaseApplication {
        CityDao cityDao = applicationContext.getBean(CityDao.class);
         for (int i=1; i<=10; i++) {
             cityDao.create((long) i,
-                    "nameRU"+i,
-                    "nameEN"+i,
+                    "name_ru"+i,
+                    "name_en"+i,
                     ThreadLocalRandom.current().nextInt(100000, 999999),
                     ThreadLocalRandom.current().nextInt(1, 99));
         }
         cityDao.updateById(2L,
-                "nameRU"+"TEST",
-                "nameEN"+"TEST",
+                "name_ru"+"_TEST",
+                "name_en"+"_TEST",
                 555,
                 555);
 

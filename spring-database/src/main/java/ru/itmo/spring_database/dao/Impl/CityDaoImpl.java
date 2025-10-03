@@ -1,7 +1,6 @@
 package ru.itmo.spring_database.dao.Impl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.itmo.spring_database.dao.CityDao;
@@ -15,27 +14,27 @@ public class CityDaoImpl implements CityDao {
 
     private final JdbcTemplate jdbcTemplate;
 
-    @SneakyThrows
     @Override
-    public Long create(Long id, String nameRU,  String nameEN, Integer numberResidents, Integer regionId) {
+    public Long create(Long id, String name_ru,  String name_en, Integer number_residents, Integer region_id) {
         jdbcTemplate.update("""
-            insert into citys (id, nameRU, nameEN, numberResidents, regionid) values (?,?,?,?,?)
-       """, id, nameRU,  nameEN, numberResidents, regionId);
+            insert into cities (id, name_ru, name_en, number_residents, region_id)
+            values (?,?,?,?,?)
+       """, id, name_ru, name_en, number_residents, region_id);
         return id;
     }
 
     @Override
-    public void updateById(Long id, String nameRU, String nameEN, Integer numberResidents, Integer regionId) {
+    public void updateById(Long id, String name_ru, String name_en, Integer number_residents, Integer region_id) {
         jdbcTemplate.update("""
-            update citys set nameRU = ?, nameEN = ?, numberResidents = ?, regionid = ?
+            update cities set name_ru = ?, name_en = ?, number_residents = ?, region_id = ?
             where id = ?
-        """, nameRU,  nameEN, numberResidents, regionId, id);
+        """, name_ru,  name_en, number_residents, region_id, id);
     }
 
     @Override
     public void deleteById(Long id) {
         jdbcTemplate.update("""
-            delete from citys
+            delete from cities
             where id = ?
         """, id);
     }
@@ -43,11 +42,13 @@ public class CityDaoImpl implements CityDao {
     @Override
     public Optional<City> findById(Long id) {
         return Optional.ofNullable(jdbcTemplate.queryForObject("""
-                select id, nameRU  from citys
+                select id, name_ru  from cities
                 where id = ?
                 """,
-                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("NameRU"), rs.getString("NameEN"), rs.getInt("NumberResidents"), rs.getInt("Regionid") )
+                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("name_ru"), rs.getString("name_en"), rs.getInt("number_residents"), rs.getInt("region_id") )
         ));
     }
-
+    public CityDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 }
