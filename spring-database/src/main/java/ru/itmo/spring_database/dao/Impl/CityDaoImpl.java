@@ -1,0 +1,53 @@
+package ru.itmo.spring_database.dao.Impl;
+
+import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import ru.itmo.spring_database.dao.CityDao;
+import ru.itmo.spring_database.model.City;
+
+import java.util.Optional;
+
+@Repository
+@RequiredArgsConstructor
+public class CityDaoImpl implements CityDao {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    @SneakyThrows
+    @Override
+    public Long create(Long id, String nameRU,  String nameEN, Integer numberResidents, Integer regionId) {
+        jdbcTemplate.update("""
+            insert into citys (id, nameRU, nameEN, numberResidents, regionid) values (?,?,?,?,?)
+       """, id, nameRU,  nameEN, numberResidents, regionId);
+        return id;
+    }
+
+    @Override
+    public void updateById(Long id, String nameRU, String nameEN, Integer numberResidents, Integer regionId) {
+        jdbcTemplate.update("""
+            update citys set nameRU = ?, nameEN = ?, numberResidents = ?, regionid = ?
+            where id = ?
+        """, nameRU,  nameEN, numberResidents, regionId, id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        jdbcTemplate.update("""
+            delete from citys
+            where id = ?
+        """, id);
+    }
+
+    @Override
+    public Optional<City> findById(Long id) {
+        return Optional.ofNullable(jdbcTemplate.queryForObject("""
+                select id, nameRU  from citys
+                where id = ?
+                """,
+                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("NameRU"), rs.getString("NameEN"), rs.getInt("NumberResidents"), rs.getInt("Regionid") )
+        ));
+    }
+
+}
