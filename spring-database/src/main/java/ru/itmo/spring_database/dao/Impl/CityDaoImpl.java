@@ -49,7 +49,7 @@ public class CityDaoImpl implements CityDao {
                 select id, name_ru  from cities
                 where id = ?
                 """,
-                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("NameRU"), rs.getString("NameEN"), rs.getInt("NumberResidents"), rs.getInt("Regionid") )
+                (rs, rowNum) -> new City(rs.getLong("id"), rs.getString("name_ru"), rs.getString("name_en"), rs.getInt("number_residents"), rs.getInt("region_id") )
         ));
     }
 
