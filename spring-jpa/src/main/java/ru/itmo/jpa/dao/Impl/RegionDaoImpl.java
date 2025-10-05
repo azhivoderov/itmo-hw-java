@@ -17,17 +17,19 @@ public class RegionDaoImpl implements RegionDao {
 
     @Override
     @Transactional
-    public Long create(Integer code) {
+    public Long create(Integer code, String name) {
         Region region = new Region();
         region.setCode(code);
+        region.setName(name);
         em.persist(region);
         return region.getId();
     }
 
     @Override
-    public void updateById(Long id, Integer code) {
+    public void updateById(Long id, Integer code, String name) {
         Region region = em.find(Region.class, id);
         region.setCode(code);
+        region.setName(name);
         em.merge(region);
     }
 

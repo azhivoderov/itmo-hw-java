@@ -1,6 +1,5 @@
 package ru.itmo.jpa.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,13 +18,13 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @Entity
-@Table (name = "regions")
+@Table(name = "regions")
 public class Region {
 
+    private Long id;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "regions_id_seq")
     @SequenceGenerator(name = "regions_id_seq", sequenceName = "regions_id_seq", allocationSize = 1)
-    private Long id;
-    @Column (name = "code")
     private Integer code;
+    private String name;
 }
