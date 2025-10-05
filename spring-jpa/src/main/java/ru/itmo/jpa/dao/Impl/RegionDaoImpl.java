@@ -26,6 +26,7 @@ public class RegionDaoImpl implements RegionDao {
     }
 
     @Override
+    @Transactional
     public void updateById(Long id, Integer code, String name) {
         Region region = em.find(Region.class, id);
         region.setCode(code);
