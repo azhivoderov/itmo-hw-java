@@ -1,9 +1,10 @@
-package ru.itmo.spring_database;
+package ru.itmo.jpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import ru.itmo.spring_database.dao.CityDao;
+import ru.itmo.jpa.dao.CityDao;
+import ru.itmo.jpa.dao.RegionDao;
 
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ public class SpringDatabaseApplication {
 
        ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringDatabaseApplication.class, args);
        CityDao cityDao = applicationContext.getBean(CityDao.class);
+       RegionDao regionDao = applicationContext.getBean(RegionDao.class);
 
        Scanner scanner = new Scanner(System.in);
        System.out.println("Добавляем город... ");
@@ -32,7 +34,7 @@ public class SpringDatabaseApplication {
                     nameCityRu,
                     nameCityEn,
                     numberResidentsCity,
-                    codeRegionCity);
+                    regionDao.create(codeRegionCity));
 
        System.out.println("Корректируем наименование города... ");
        System.out.print("Введите код города: ");
@@ -41,13 +43,11 @@ public class SpringDatabaseApplication {
         cityDao.updateById(codeCity,
                 "Тюмень",
                 "Tyumen",
-                850000,
-                72);
+                850000);
 
        System.out.println("Удаляем город... ");
        System.out.print("Введите код города: ");
        codeCity = scanner.nextLong();
        cityDao.deleteById(codeCity);
 	}
-
 }
