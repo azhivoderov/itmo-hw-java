@@ -1,10 +1,10 @@
-package ru.itmo.jpa.dao.Impl;
+package ru.itmo.jpa.repository.Impl;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import ru.itmo.jpa.dao.CityDao;
+import ru.itmo.jpa.repository.CityDao;
 import ru.itmo.jpa.model.City;
 import ru.itmo.jpa.model.Region;
 
@@ -16,9 +16,9 @@ public class CityDaoImpl implements CityDao {
 
     private final EntityManager em;
 
-    @Override
     @Transactional
-    public Long create(String nameRU, String nameEN, Integer numberResidents, Long regionId) {
+    @Override
+    public Long create(String nameRU, String nameEN, Integer numberResidents, Region regionId) {
         City city = new City();
         city.setNameRU(nameRU);
         city.setNameEN(nameEN);
