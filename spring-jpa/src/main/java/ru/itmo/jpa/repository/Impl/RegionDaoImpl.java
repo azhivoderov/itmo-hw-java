@@ -1,10 +1,10 @@
-package ru.itmo.jpa.dao.Impl;
+package ru.itmo.jpa.repository.Impl;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import ru.itmo.jpa.dao.RegionDao;
+import ru.itmo.jpa.repository.RegionDao;
 import ru.itmo.jpa.model.Region;
 
 import java.util.Optional;
