@@ -29,6 +29,6 @@ public class City {
 
     @ManyToOne
     @JoinColumn(name = "region_id")
+    @ToString.Exclude
     private Region regionId;
-
 }
