@@ -21,9 +21,12 @@ import lombok.ToString;
 @Table(name = "regions")
 public class Region {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "regions_id_seq", sequenceName = "regions_id_seq", allocationSize = 1)
     private Long id;
     private Integer code;
     private String name;
+
+    public Region(Integer codeRegionCity, String nameRegionCity) {
+    }
 }

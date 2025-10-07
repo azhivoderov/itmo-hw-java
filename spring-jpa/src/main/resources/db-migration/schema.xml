@@ -1,0 +1,49 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create-table-regions" author="AlekseyZhivoderov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="regions"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="regions">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="code" type="integer">
+            </column>
+            <column name="name" type="varchar(255)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-table-cities" author="AlekseyZhivoderov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="cities"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="cities">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name_ru" type="varchar(255)">
+            </column>
+            <column name="name_en" type="varchar(255)">
+            </column>
+            <column name="number_residents" type="integer">
+            </column>
+            <column name="region_id" type="bigint">
+                <constraints foreignKeyName="cities_regions_id_fk"
+                             references="regions(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

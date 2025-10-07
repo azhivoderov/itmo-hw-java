@@ -6,7 +6,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import ru.itmo.jpa.model.City;
 import ru.itmo.jpa.model.Region;
 import ru.itmo.jpa.repository.CityRepository;
-import ru.itmo.jpa.repository.Impl.RegionRepositoryImpl;
 import ru.itmo.jpa.repository.RegionRepository;
 
 import java.util.Scanner;
@@ -38,9 +37,13 @@ public class SpringDatabaseApplication {
        Integer codeRegionCity = scanner.nextInt();
 
        cityDao.save(new City(
-                nameCityRu,
-                nameCityEn,
-                numberResidentsCity,regionDao.save(new Region(1l, 2, "S"))));
+               nameCityRu,
+               nameCityEn,
+               numberResidentsCity,
+               regionDao.save(new Region(
+                       codeRegionCity,
+                       nameRegionCity
+               ))));
 
         System.out.println("Корректируем наименование города... ");
        System.out.print("Введите id города: ");
