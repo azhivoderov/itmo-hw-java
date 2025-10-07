@@ -6,9 +6,7 @@
 
     <changeSet id="fill-table-regions" author="AlekseyZhivoderov">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0"><![CDATA[
-                select count(*) from regions
-                ]]></sqlCheck>
+            <sqlCheck expectedResult="0">select count(*) from regions </sqlCheck>
         </preConditions>
         <sqlFile path="regions-data.sql" relativeToChangelogFile="true"/>
     </changeSet>

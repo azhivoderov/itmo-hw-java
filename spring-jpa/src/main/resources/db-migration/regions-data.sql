@@ -1,1 +1,1 @@
-insert into regions(code, name) values (66, 'test')
+insert into regions (code, name) values (66, 'name')

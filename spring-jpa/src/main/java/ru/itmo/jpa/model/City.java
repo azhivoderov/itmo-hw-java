@@ -22,7 +22,7 @@ import lombok.ToString;
 public class City {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column (name = "name_ru")
     private String nameRU;
@@ -36,6 +36,4 @@ public class City {
     @JoinColumn(name = "region_id")
     private Region regionId;
 
-    public City(String nameCityRu, String nameCityEn, Integer numberResidentsCity, Region region) {
-    }
 }
