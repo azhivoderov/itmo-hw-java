@@ -11,7 +11,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.dialect.pagination.LegacyOracleLimitHandler;
 
 @Getter
 @Setter
@@ -23,7 +22,6 @@ import org.hibernate.dialect.pagination.LegacyOracleLimitHandler;
 public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @SequenceGenerator(name = "regions_id_seq", sequenceName = "regions_id_seq", allocationSize = 1)
     private Long id;
     private Integer code;
     private String name;
